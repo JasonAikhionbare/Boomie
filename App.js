@@ -11,6 +11,7 @@ export default function App() {
       <TextAnimator content= 'Helping You Stay Connected With Your Chosen Family.  BOOMIE' 
       textStyle={styles.textStyle}
       style={styles.containerStyle}
+      duraiton={1000}
       />
 
     </View>

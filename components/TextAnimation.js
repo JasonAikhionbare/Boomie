@@ -24,12 +24,20 @@ export default class TextAnimator extends React.Component {
            const animations = this.textArr.map((_, i) => {
                return Animated.timing(this.animatedValues[i], {
                    toValue,
-                   duration: this.props 
+                   duration: this.props.duration
                })
            });
 
-           Animated.stagger(100, animations).start();
-        }
+           Animated.stagger(this.props.duration / 5, animations).start(() => {
+
+            //reverses animation to remove text
+               setTimeout(() => this.animated(toValue === 0 ? 1 : 0), 1000);
+               
+               if(this.props.onFinish){
+                   this.props.onFinish();
+               }
+           });
+        };
 
         render() {
             return (
@@ -42,7 +50,7 @@ export default class TextAnimator extends React.Component {
                                      {
                                      translateY: Animated.multiply(
                                          thi .animatedValues[index],
-                                         new Animated.Value(-5)
+                                         new Animated.Value(-15)
                                      )
                                  }
                                 ]
