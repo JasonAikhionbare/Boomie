@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Animated } from 'react-native';
 
-//followed tutorial for Animated text from: https://www.google.com/search?client=firefox-b-d&q=react+native+animated+opening+text+#kpvalbx=_MbgbYcfROMn6gAbawrHwCA15
+//followed tutorial for Animated text from: https://www.youtube.com/watch?v=mwZPCA6Du5A&t=287s
 
 export default class TextAnimator extends React.Component {
     animatedValues = [];
@@ -24,7 +24,7 @@ export default class TextAnimator extends React.Component {
            const animations = this.textArr.map((_, i) => {
                return Animated.timing(this.animatedValues[i], {
                    toValue,
-                   duration: 500
+                   duration: this.props 
                })
            });
 
@@ -37,9 +37,19 @@ export default class TextAnimator extends React.Component {
                     {this.textArr.map((word, index) => {
                         return ( 
                             <Animated.Text key={`${word}-${index}`} style= {[this.props.textStyle, {
-                                opacity: this.animatedValues[index] 
+                                opacity: this.animatedValues[index],
+                                 transform: [
+                                     {
+                                     translateY: Animated.multiply(
+                                         thi .animatedValues[index],
+                                         new Animated.Value(-5)
+                                     )
+                                 }
+                                ]
                             }
-                            ]}>
+                            ]
+                        }
+                        >
                                 {word}
                                 {`$index < this.textArr.length ? ' ' : ''}`}
                             </Animated.Text>
