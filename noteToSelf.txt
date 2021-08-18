@@ -1,0 +1,2 @@
+Log in and signup page tutorial for reference: https://www.youtube.com/watch?v=Rs72pRwXIzA
+Anotha one: https://aboutreact.com/react-native-login-and-signup/
